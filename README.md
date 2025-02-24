@@ -26,27 +26,29 @@ This project uses a collection of powerful tools to make the magic happen:
 Follow these simple steps to get the project up and running locally:
 
 ### 1. Clone the repository:
-    Start by cloning the repository to your local machine:
-    ```bash
-        git clone https://github.com/limengkruy/fast-api-h02.git
-        cd fast-api-h02
-    ```
+Start by cloning the repository to your local machine:
+
+```bash
+git clone https://github.com/limengkruy/fast-api-h02.git
+cd fast-api-h02
+```
 
 ### 2. Install the required dependencies:
-    ```bash
-        pip install -r requirements.txt
-    ```
+```bash
+pip install -r requirements.txt
+```
 
 ### 3. Train the model:
-    Run the Python script to train the customer churn model and save it to a `.pkl` file:
-    ```bash
-    python train_model.py
-    ```
+Run the Python script to train the customer churn model and save it to a `.pkl` file:
+
+```bash
+python train_model.py
+```
 
 ### 4. Start the FastAPI server:
-    ```bash
-    uvicorn main:app --reload
-    ```
+```bash
+uvicorn main:app --reload
+```
 
 ### 5. To make predictions, send a POST request to `/predict` with the customer data in JSON format.
 
@@ -57,32 +59,32 @@ Follow these simple steps to get the project up and running locally:
     Example request:
     ```json
     {
-        "seniorCitizen": 1,
-        "partner": "Yes",
-        "dependents": "No",
-        "tenure": 25,
-        "phoneService": "Yes",
-        "multipleLines": "No",
-        "internetService": "DSL",
-        "onlineSecurity": "Yes",
-        "onlineBackup": "No",
-        "deviceProtection": "Yes",
-        "techSupport": "No",
-        "streamingTV": "Yes",
-        "streamingMovies": "Yes",
-        "contract": "One year",
-        "paperlessBilling": "Yes",
-        "paymentMethod": "Electronic check",
-        "monthlyCharges": 89.45,
-        "totalCharges": 2239.35,
-        "churn": "Yes"
+    "gender": "Female",                // Available values: "Female", "Male"
+    "SeniorCitizen": 0,                // Available values: 0 (No), 1 (Yes)
+    "Partner": "Yes",                  // Available values: "Yes", "No"
+    "Dependents": "No",                // Available values: "Yes", "No"
+    "tenure": 12,                      // Number of months (integer)
+    "PhoneService": "Yes",             // Available values: "Yes", "No"
+    "MultipleLines": "No",             // Available values: "No phone service", "No", "Yes"
+    "InternetService": "DSL",          // Available values: "DSL", "Fiber optic", "No"
+    "OnlineSecurity": "No internet service", // Available values: "No internet service", "No", "Yes"
+    "OnlineBackup": "Yes",             // Available values: "No internet service", "No", "Yes"
+    "DeviceProtection": "No internet service", // Available values: "No internet service", "No", "Yes"
+    "TechSupport": "No internet service", // Available values: "No internet service", "No", "Yes"
+    "StreamingTV": "Yes",              // Available values: "No internet service", "No", "Yes"
+    "StreamingMovies": "Yes",          // Available values: "No internet service", "No", "Yes"
+    "Contract": "Month-to-month",      // Available values: "Month-to-month", "One year", "Two year"
+    "PaperlessBilling": "Yes",         // Available values: "Yes", "No"
+    "PaymentMethod": "Electronic check", // Available values: "Electronic check", "Mailed check", "Bank transfer (automatic)", "Credit card (automatic)"
+    "MonthlyCharges": 55.8,            // Monthly charges as a float
+    "TotalCharges": 660.2              // Total charges as a float
     }
     ```
 
     Example response:
     ```json
     {
-        "prediction": "Yes"
+        "prediction": "Yes" // Yes or No
     }
     ```
 
