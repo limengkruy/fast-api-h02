@@ -4,4 +4,4 @@ joblib
 uvicorn
 pandas
 numpy
-tensorflow
+tensorflow-cpu
